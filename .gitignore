@@ -1,0 +1,30 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Environment secrets
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Data cache (large/generated)
+data/travel_time_matrix.parquet
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Raw data (too large for git — keep locally)
+# raw_data/
