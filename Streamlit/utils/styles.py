@@ -51,7 +51,7 @@ def apply_chart_style(
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
         font=dict(color="#1B4332", family="sans-serif", size=13),
-        margin=dict(l=48, r=20, t=40, b=48),
+        margin=dict(l=56, r=28, t=56, b=56),
         hoverlabel=dict(bgcolor="#2D6A4F", font_color="white", font_size=13),
         height=height,
         colorway=GREEN_SEQUENCE,
@@ -59,8 +59,18 @@ def apply_chart_style(
     )
     if showlegend is not None:
         fig.update_layout(showlegend=showlegend)
-    fig.update_xaxes(title_text=xaxis_title, gridcolor="#E0EDE5", linecolor="#E0EDE5")
-    fig.update_yaxes(title_text=yaxis_title, gridcolor="#E0EDE5", linecolor="#E0EDE5")
+    fig.update_xaxes(
+        title_text=xaxis_title,
+        gridcolor="#E0EDE5",
+        linecolor="#E0EDE5",
+        automargin=True,
+    )
+    fig.update_yaxes(
+        title_text=yaxis_title,
+        gridcolor="#E0EDE5",
+        linecolor="#E0EDE5",
+        automargin=True,
+    )
     return fig
 
 
@@ -83,14 +93,16 @@ def get_css() -> str:
     font-weight: 800;
     color: #1B4332;
     margin-bottom: 0;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.7px;
     line-height: 1.2;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 .sub-title {
     font-size: 0.92rem;
     color: #52796F;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     font-weight: 400;
+    letter-spacing: 0.2px;
 }
 
 /* ============================================================
@@ -114,14 +126,16 @@ def get_css() -> str:
     font-size: 1.0rem;
     border: none;
     white-space: nowrap;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.15s;
 }
 .stTabs [data-baseweb="tab"]:hover {
     background-color: #D8F3DC;
+    transform: translateY(-1px);
 }
 .stTabs [aria-selected="true"] {
     background-color: #40916C !important;
     color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(64, 145, 108, 0.22);
 }
 .stTabs [data-baseweb="tab-highlight"] {
     display: none;
@@ -144,19 +158,20 @@ def get_css() -> str:
 }
 .metric-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(27, 67, 50, 0.1);
+    box-shadow: 0 8px 22px rgba(27, 67, 50, 0.12);
 }
 .metric-value {
     font-size: 1.85rem;
     font-weight: 700;
     color: #1B4332;
     line-height: 1.15;
+    letter-spacing: -0.3px;
 }
 .metric-label {
     font-size: 0.85rem;
     color: #52796F;
     margin-top: 4px;
-    font-weight: 500;
+    font-weight: 600;
 }
 .metric-delta {
     font-size: 0.78rem;
@@ -197,6 +212,7 @@ def get_css() -> str:
     font-weight: 700;
     color: #1B4332;
     margin-bottom: 4px;
+    letter-spacing: -0.3px;
 }
 .page-desc {
     font-size: 0.88rem;
@@ -360,15 +376,26 @@ div[data-baseweb="select"] > div:focus-within {
     font-weight: 600;
     transition: all 0.2s;
     border: 1px solid #E0EDE5;
+    background: #FFFFFF;
+    color: #2D6A4F;
+    box-shadow: 0 1px 3px rgba(27, 67, 50, 0.05);
+}
+.stButton > button:hover {
+    border-color: #74C69D;
+    color: #1B4332;
+    background: #F9FCF9;
 }
 .stButton > button[kind="primary"] {
-    background-color: #40916C;
+    background: linear-gradient(180deg, #52B788 0%, #40916C 100%);
     color: white;
     border-color: #40916C;
+    box-shadow: 0 6px 14px rgba(64, 145, 108, 0.18);
 }
 .stButton > button[kind="primary"]:hover {
     background-color: #2D6A4F;
     border-color: #2D6A4F;
+    box-shadow: 0 8px 18px rgba(45, 106, 79, 0.22);
+    transform: translateY(-1px);
 }
 
 /* ============================================================

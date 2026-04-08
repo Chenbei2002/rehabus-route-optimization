@@ -5,8 +5,8 @@ import streamlit as st
 
 
 def render_parking_data() -> None:
-    st.header("2) Parking 页面")
-    st.caption("展示 Depot 停车点及容量信息。")
+    st.header("2) Parking 頁面")
+    st.caption("展示 Depot 停車點及容量資訊。")
 
     data_path = Path(__file__).resolve().parent.parent / "parking_data.csv"
     df = pd.read_csv(data_path)

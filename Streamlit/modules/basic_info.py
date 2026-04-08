@@ -9,7 +9,7 @@ def render_kpis():
             """
             <div class="metric-card">
                 <div class="metric-value">132</div>
-                <div class="metric-label">现有路线数</div>
+                <div class="metric-label">現有路線數</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -20,7 +20,7 @@ def render_kpis():
             """
             <div class="metric-card">
                 <div class="metric-value">1200+</div>
-                <div class="metric-label">服务用户数</div>
+                <div class="metric-label">服務用戶數</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -31,14 +31,14 @@ def render_kpis():
             """
             <div class="metric-card">
                 <div class="metric-value">85%</div>
-                <div class="metric-label">车辆利用率</div>
+                <div class="metric-label">車輛利用率</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
 def render_basic_data() -> None:
-    st.header("1) 基础数据")
-    st.caption("后续补充基础数据上传、清洗、筛选与可视化。")
+    st.header("1) 基礎資料")
+    st.caption("後續補充基礎資料上傳、清洗、篩選與視覺化。")
     render_kpis()
 

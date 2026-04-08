@@ -11,15 +11,25 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-PROJECT_DIR = Path(__file__).resolve().parent.parent
+APP_DIR = Path(__file__).resolve().parent.parent
+REPO_DIR = APP_DIR.parent
 
 
 def _find(name: str) -> Path:
-    """Locate a data file in the project root or data/ subdirectory."""
-    for candidate in [PROJECT_DIR / name, PROJECT_DIR / "data" / name]:
+    """Locate a data file across app/repo candidate directories."""
+    candidates = [
+        APP_DIR / name,
+        APP_DIR / "data" / name,
+        APP_DIR / "output_data" / name,
+        REPO_DIR / name,
+        REPO_DIR / "data" / name,
+        REPO_DIR / "output_data" / name,
+    ]
+    for candidate in candidates:
         if candidate.exists():
             return candidate
-    raise FileNotFoundError(f"Cannot find {name} in {PROJECT_DIR} or {PROJECT_DIR / 'data'}")
+    searched = ", ".join(str(p) for p in candidates)
+    raise FileNotFoundError(f"Cannot find {name}. Searched: {searched}")
 
 
 # ── Passenger data ────────────────────────────────────────────────
